@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Medusa-Gitty/Unit_4_C4#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.1.1"
+    "mongoose": "^6.1.1",
+    "multer": "^1.4.4"
   }
 }
