@@ -9,7 +9,7 @@ app.use("/screens", screenController);
 const theatreController = require("./controllers/theatre.controller");
 app.use("/theatres", theatreController);
 
-const showController = require("./controllers/showtime.controller");
+const showController = require("./controllers/show.controller");
 app.use("/shows", showController);
 
 const seatController = require("./controllers/seat.controller");

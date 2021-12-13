@@ -26,7 +26,7 @@ router.get("/location/:place", async (req, res) => {
   const theatre = await Theatre.findOne({ location: req.params.place })
     .lean()
     .exec();
-  const shows = await Showtime.find({ theatre: theatre._id })
+  const shows = await Show.find({ theatre: theatre._id })
     .limit(1)
     .populate("movie")
     .populate({ path: "screen", populate: { path: "theatre" } })
