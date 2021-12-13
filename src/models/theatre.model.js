@@ -1,14 +1,14 @@
-const mongoose = require("mongoose");
+const { Schema , model } = require("mongoose");
 
-const theatreSchema = new mongoose.Schema(
-  {
-    theatre_name: { type: String, required: true },
-    location: { type: String, required: true },
-  },
-  {
-    versionKey: false,
-    timestamps: true,
-  }
-);
+const theatreSchema = new Schema ({
 
-module.exports = mongoose.model("theatre", theatreSchema);
+theatre_name:{type: String , required:true},
+location:{type: String , required:true },
+
+},
+{
+    versionKey:false,
+    timestamps:true
+});
+
+module.exports = model("theatre" , theatreSchema);

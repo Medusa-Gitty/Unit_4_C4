@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");
+const { Schema , model } = require("mongoose");
 
-const seatSchema = new mongoose.Schema(
-  {
-    screen: { type: Schema.Types.ObjectId, ref: "show", required: true },
-  },
-  {
-    versionKey: false,
-    timestamps: true,
-  }
-);
+const seatSchema = new Schema ({
 
-module.exports = mongoose.model("seat", seatSchema);
+show:{type: Schema.Types.ObjectId , ref : "show", required:true},
+
+
+},
+{
+    versionKey:false,
+    timestamps:true
+});
+
+module.exports = model("seat" ,seatSchema);
