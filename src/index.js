@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+app.use(express.json());
 
 const movieController = require("./controllers/movie.controller");
 app.use("/movies", movieController);
@@ -18,7 +19,5 @@ app.use("/seats", seatController);
 const { register, login } = require("./controllers/user.controller");
 app.post("/register", register);
 app.post("/login", login);
-
-app.use(express.json());
 
 module.exports = app;
