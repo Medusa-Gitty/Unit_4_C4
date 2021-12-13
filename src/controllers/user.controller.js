@@ -1,8 +1,7 @@
 // const express = require("express");
 const User = require("../models/user.model");
-require("dotenv").config;
-
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const newToken = (user) => {
   return jwt.sign({ user: user }, process.env.JWT_SECRET_KEY);
@@ -11,16 +10,19 @@ const newToken = (user) => {
 const register = async (req, res) => {
   try {
     let user = await User.findOne({ email: req.body.email }).lean().exec();
-    if (user) {
+    console.log(user);
+    if (user)
       return res
         .status(400)
-        .json({ message: "Please provide a different email address" });
-    }
+        .json({ message: "Please provide different email address" });
+
     user = await User.create(req.body);
+
     const token = newToken(user);
+
     return res.send({ user, token });
   } catch (e) {
-    return res.status(500).json({ message: e.message });
+    return res.status(500).send(e.message);
   }
 };
 
