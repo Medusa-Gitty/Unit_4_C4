@@ -1,7 +1,7 @@
 const express = require("express");
+const Movie = require("../models/movie.model");
 const authenticate = require("../middleware/authentication");
 const router = express.Router();
-const Movie = require("../models/movie.model");
 
 router.post("/", authenticate, async (req, res) => {
   const movie = await Movie.create(req.body);
